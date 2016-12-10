@@ -7,31 +7,83 @@ var keys = ["DULUDRDDDRLUDURUUULRRRURDRDULRUDDUDRULUDDUDRLDULRRLRDRUDUUULUUDLRUR
 var code = "";
 
 var x = 5;
+// for (i=0; i<keys.length; i++){
+//   for (j=0; j<keys[i].length; j++){
+//     switch (keys[i].charAt(j)){
+//       case "U":
+//         if (x!=1 && x!=2 && x!=3){
+//           x-=3;
+//         }
+//         break;
+//       case "D":
+//         if (x!=7 && x!=8 && x!=9){
+//           x+=3;
+//         }
+//         break;
+//       case "L":
+//         if (x!=1 && x!=4 && x!=7){
+//           x-=1;
+//         }
+//         break;
+//       case "R":
+//         if (x!=3 && x!=6 && x!=9){
+//           x+=1;
+//         }
+//         break;
+//     }
+//   }
+//   code = code + x.toString();
+// }
 for (i=0; i<keys.length; i++){
   for (j=0; j<keys[i].length; j++){
     switch (keys[i].charAt(j)){
       case "U":
-        if (x!=1 && x!=2 && x!=3){
-          x-=3;
+        if (x!=1 && x!=2 && x!=4 && x!=5 && x!=9){
+          if (x == 3 || x == 13){
+            x-=2;
+          } else {
+            x-=4;
+          }
         }
         break;
       case "D":
-        if (x!=7 && x!=8 && x!=9){
-          x+=3;
+        if (x!=5 && x!=10 && x!=13 && x!=12 && x!=9){
+          if (x == 1 || x == 11){
+            x+=2;
+          } else {
+            x+=4;
+          }
         }
         break;
       case "L":
-        if (x!=1 && x!=4 && x!=7){
+        if (x!=1 && x!=2 && x!=5 && x!=10 && x!=13){
           x-=1;
         }
         break;
       case "R":
-        if (x!=3 && x!=6 && x!=9){
+        if (x!=1 && x!=4 && x!=9 && x!=12 && x!=13){
           x+=1;
         }
         break;
     }
   }
-  code = code + x.toString();
+  if (x>9){
+    switch (x){
+      case 10:
+        code = code + "A";
+        break;
+      case 11:
+        code = code + "B";
+        break;
+      case 12:
+        code = code + "C";
+        break;
+      case 13:
+        code = code + "D";
+        break;
+    }
+  } else {
+    code = code + x.toString();
+  }
 }
 console.log(code);
